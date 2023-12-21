@@ -1,3 +1,5 @@
+import 'package:clone_coding_image_viewer/Widgets/ImageCards.dart';
+import 'package:clone_coding_image_viewer/imageFileRepository.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,30 +10,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final images = ImageFileRepository().getImages();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.black,
-            child: const Column(
-              children: [
-                Image.network(video.thumbnailUrl, height: 220.0, width: double.infinity,),
-                Text(
-                  '홈 화면',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  '홈 화면',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  '홈 화면',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            )));
+        body: CustomScrollView(
+          slivers: [
+            SliverList(delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                  final image = images[index];
+                  return ImageCards(image: image);
+                },
+                childCount: images.length,
+            ),)
+          ],
+        )
+    );
   }
 }
 
@@ -58,9 +53,9 @@ class FilterButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
-          //side: BorderSide(color: Colors.red) // border line color
-        )),
+              borderRadius: BorderRadius.circular(18.0),
+              //side: BorderSide(color: Colors.red) // border line color
+            )),
       ),
     );
   }
