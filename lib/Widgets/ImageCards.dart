@@ -42,51 +42,54 @@ class ImageCards extends StatelessWidget {
             )
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GestureDetector(
-                onTap: () => print('프로필 화면으로 갑니다.'),
-                child: CircleAvatar(
-                  foregroundImage: AssetImage('/assets/icons/thumb.png'),
+        Container(
+          color: Colors.black,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () => print('프로필 화면으로 갑니다.'),
+                  child: CircleAvatar(
+                    foregroundImage: AssetImage('/assets/icons/thumb.png'),
+                  ),
                 ),
-              ),
-              const SizedBox(width: 8,),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                        child: Text(
-                      'Filename: ${image.filePath}',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15.0),
-                    )),
-                    Flexible(
-                        child: Text(
-                      'Distribution: ${image.distribution}',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 14.0),
-                    ))
-                  ],
+                const SizedBox(width: 8,),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Flexible(
+                          child: Text(
+                        'Filename: ${image.filePath}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: Colors.white, fontSize: 15.0),
+                      )),
+                      Flexible(
+                          child: Text(
+                        'Distribution: ${image.distribution}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: Colors.white, fontSize: 14.0),
+                      ))
+                    ],
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: (){},
-                child: const Icon(Icons.more_vert),
-              )
-            ],
+                GestureDetector(
+                  onTap: (){},
+                  child: const Icon(Icons.more_vert, color: Colors.white,),
+                )
+              ],
+            ),
           ),
         )
       ],
