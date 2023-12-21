@@ -1,8 +1,8 @@
-import 'package:clone_coding_image_viewer/addImageScreen.dart';
-import 'package:clone_coding_image_viewer/homeScreen.dart';
-import 'package:clone_coding_image_viewer/shortsScreen.dart';
-import 'package:clone_coding_image_viewer/storageScreen.dart';
-import 'package:clone_coding_image_viewer/subscribeScreen.dart';
+import 'package:clone_coding_image_viewer/screens/addImageScreen.dart';
+import 'package:clone_coding_image_viewer/screens/homeScreen.dart';
+import 'package:clone_coding_image_viewer/screens/shortsScreen.dart';
+import 'package:clone_coding_image_viewer/screens/storageScreen.dart';
+import 'package:clone_coding_image_viewer/screens/subscribeScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenControl extends StatefulWidget {
