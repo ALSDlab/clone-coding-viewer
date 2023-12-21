@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:clone_coding_image_viewer/imageModel/images.dart';
 
 class ImageFileRepository {

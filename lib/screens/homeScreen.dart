@@ -10,53 +10,68 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final images = ImageFileRepository().getImages();
+  final imageInfos = ImageFileRepository().getImages();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverList(delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                  final image = images[index];
-                  return ImageCards(image: image);
-                },
-                childCount: images.length,
-            ),)
-          ],
-        )
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              color: Colors.black,
+              height: 40.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  FilterButton(text: '전체'),
+                  FilterButton(text: 'AIRPLANE'),
+                  FilterButton(text: 'ATV'),
+                  FilterButton(text: 'BIKE'),
+                  FilterButton(text: 'CLASSIC CAR'),
+                  FilterButton(text: 'SUPER CAR'),
+                ],
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final image = imageInfos[index];
+                return ImageCards(image: image);
+              },
+              childCount: imageInfos.length,
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }
 
 class FilterButton extends StatelessWidget {
-  String text;
+  final String text;
 
-  FilterButton({
+  const FilterButton({
     super.key,
     required this.text,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: Column(
-        children: [
-          Text(text),
-          const Icon(Icons.refresh),
-        ],
-      ),
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-              //side: BorderSide(color: Colors.red) // border line color
-            )),
-      ),
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white24,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12))),
+          child: Text(text)),
     );
   }
 }
+
+//

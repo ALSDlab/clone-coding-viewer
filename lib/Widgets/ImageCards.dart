@@ -25,6 +25,7 @@ class ImageCards extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
+
             Positioned(
               bottom: 8.0,
               right: 8.0,
@@ -32,7 +33,7 @@ class ImageCards extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 color: Colors.black,
                 child: Text(
-                  imageByte(image.filePath).then((value) => value).toString(),
+                  '1.4 MB',              // ${imageByte(image.filePath)} 수정할 것
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
@@ -51,11 +52,13 @@ class ImageCards extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () => print('프로필 화면으로 갑니다.'),
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     foregroundImage: AssetImage('/assets/icons/thumb.png'),
                   ),
                 ),
-                const SizedBox(width: 8,),
+                const SizedBox(
+                  width: 8,
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,8 +88,11 @@ class ImageCards extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){},
-                  child: const Icon(Icons.more_vert, color: Colors.white,),
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
