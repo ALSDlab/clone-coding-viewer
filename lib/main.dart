@@ -1,4 +1,4 @@
-import 'package:clone_coding_image_viewer/mainScreenControl.dart';
+import 'package:clone_coding_image_viewer/Widgets/mainScreenControl.dart';
 import 'package:flutter/material.dart';
 
 void main() {

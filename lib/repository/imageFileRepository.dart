@@ -3,21 +3,6 @@ import 'package:clone_coding_image_viewer/imageModel/images.dart';
 class ImageFileRepository {
   final List<ImageDetail> images = [
     ImageDetail(
-      id: 1,
-      filePath: 'assets/images/airplane/airplane1.jpg',
-      distribution: 'airplane',
-    ),
-    ImageDetail(
-      id: 2,
-      filePath: 'assets/images/airplane/airplane2.jpg',
-      distribution: 'airplane',
-    ),
-    ImageDetail(
-      id: 3,
-      filePath: 'assets/images/airplane/airplane3.jpg',
-      distribution: 'airplane',
-    ),
-    ImageDetail(
       id: 4,
       filePath: 'assets/images/ATV/atv1.jpg',
       distribution: 'ATV',
@@ -97,10 +82,9 @@ class ImageFileRepository {
       filePath: 'assets/images/superCar/superCar5.jpg',
       distribution: 'super car',
     ),
-
   ];
 
-  List<ImageDetail> getImages(){
+  List<dynamic> getImages() {
     return images;
   }
 }
